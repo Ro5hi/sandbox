@@ -7,47 +7,40 @@
     <title>SubTrack</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
-
-  <body>
-    <div class="row">
-      <div class="user">
-        <div class="header">Your Subscriptions</div>
-        <div id="subscriptions"></div>
-        <div id="dates"></div>
-        <div class="budget-container">
-            <span id="total" class="month-amount">$ 0</span>
+  <div class="header">
+    <h1>SubTrack</h1>
+    <h2>Your subscription manager.</h2>
+  </div>
+  <br>
+      <div id="form">
+        <form>
+          <div>
+            <span>Category:</span> 
+              <select name="type">
+                  <option value="nourishment">Nourishment</option>
+                  <option value="membership">Membership</option>
+                  <option value="service">Service</option>
+                  <option value="other">Other</option>
+              </select>
           </div>
+          <div>
+            <span>Name:</span> 
+            <input type="text" name="item-name" placeholder="Subscription Name">
+          </div>
+          <div>
+            <span>Date:</span> 
+            <input type="date" name="Date Subscribed">
+          </div>
+          <div>
+            <span>Amount:</span> 
+            <input type="number" name="amount" placeholder="Subscription Price">
+          </div>
+        </form>
       </div>
-
-        <select>
-            <optgroup label="Nourishment">
-              <option value="drink">Drink</option>
-              <option value="food">Food</option>
-              <option value="health">Health</option>
-            </optgroup>
-            <optgroup label="Service">
-              <option value="fitness">Fitness</option>
-              <option value="investment">Investment</option>
-              <option value="membership">Membership</option>
-            </optgroup>
-            <optgroup label="Product">
-              <option value="beauty">Beauty</option>
-              <option value="Tech">Tech</option>
-              <option value="fashion">Fashion</option>
-            </optgroup>
-        </select>
-
-      <div class="row">
-          <input class="form-control input-subscription-name" type="text" placeholder="Name">
-        </div>
-          <input class="form-control input-subscription-price" type="number" placeholder="Price">
-        </div>
-        <br>
-        <div class="btn">
-          <button type="button" class="btn btn-success btn-submit-subscription">&check;</button>
-        </div>
-    <div class="subscription-list"></div>
-    </div>
+        
+      <div id="button"><span>Add Subscription</span>
+        <button type="button" class="btn btn-success btn-submit-expense">&check;</button>
+      </div>
 
     <script src="src/script.js"></script>
   </body>
