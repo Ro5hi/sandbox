@@ -8,22 +8,32 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <div class="header">
+    <h3><strong>SubTrack</strong></h3>
+    <h5>Monitor your monthly subscriptions!</h5>
   </div>
   <br>
+  <div class="form">
     <div id="form">
-      <form>
-        <div>
-          <span>Category:</span> 
-            <select name="type">
-               <option value="nourishment">Nourishment</option>
-               <option value="membership">Membership</option>
-               <option value="service">Service</option>
-               <option value="other">Other</option>
-            </select>
-        </div>
+      <form onsubmit="createSub(); return false;">
+        <form>
+          <div>
+            <div id="category">
+              <span>Category:</span> 
+              <select name="type">
+                <option value="nourishment">Nourishment</option>
+                <option value="membership">Membership</option>
+                <option value="service">Service</option>
+                <option value="other">Other</option>
+              </select>
+            </div>  
+          </div>
           <div>
             <span>Name:</span> 
             <input type="text" name="item-name" placeholder="Subscription Name">
+          </div>
+          <div>
+            <span>Link:</span> 
+            <input type="url" name="url" placeholder="Website">
           </div>
           <div>
             <span>Date:</span> 
@@ -33,15 +43,25 @@
             <span>Amount:</span> 
             <input type="number" name="amount" placeholder="Subscription Price">
           </div>
+          <div class="form-control">
+          </div>
           <div id="button"><span>Add Subscription</span>
             <input class="btn" type="submit" value="Submit">
           </div>
         </form>
+      </form>
     </div>
+  </div>
+    <div class="list">
+      <label for="subs">Subscriptions</label>
       <ul id="list" class="list"></ul>
-      <footer>
-        &copy; SubTrack 2020
-      </footer>
+      <input type="text" name="total" id="total"/>
+      <div id="button">
+        <input class="btn" type="submit" value="Delete">
+    </div>
+    <div id="button">
+      <input class="btn" type="submit" value="Update">
+  </div>
     <script src="src/script.js"></script>
   </body>
 </html>
