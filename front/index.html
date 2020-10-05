@@ -8,21 +8,19 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <div class="header">
-    <h1>SubTrack</h1>
-    <h2>Your subscription manager.</h2>
   </div>
   <br>
-      <div id="form">
-        <form>
-          <div>
-            <span>Category:</span> 
-              <select name="type">
-                  <option value="nourishment">Nourishment</option>
-                  <option value="membership">Membership</option>
-                  <option value="service">Service</option>
-                  <option value="other">Other</option>
-              </select>
-          </div>
+    <div id="form">
+      <form>
+        <div>
+          <span>Category:</span> 
+            <select name="type">
+               <option value="nourishment">Nourishment</option>
+               <option value="membership">Membership</option>
+               <option value="service">Service</option>
+               <option value="other">Other</option>
+            </select>
+        </div>
           <div>
             <span>Name:</span> 
             <input type="text" name="item-name" placeholder="Subscription Name">
@@ -35,13 +33,15 @@
             <span>Amount:</span> 
             <input type="number" name="amount" placeholder="Subscription Price">
           </div>
+          <div id="button"><span>Add Subscription</span>
+            <input class="btn" type="submit" value="Submit">
+          </div>
         </form>
-      </div>
-        
-      <div id="button"><span>Add Subscription</span>
-        <button type="button" class="btn btn-success btn-submit-expense">&check;</button>
-      </div>
-
+    </div>
+      <ul id="list" class="list"></ul>
+      <footer>
+        &copy; SubTrack 2020
+      </footer>
     <script src="src/script.js"></script>
   </body>
 </html>

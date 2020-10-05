@@ -1,25 +1,45 @@
 console.log("SubTrack: Track your Subscriptions")
 
+const form = document.getElementById("form");
+const category = document.getElementById("type");
+const amount = document.getElementById("amount");
+const list = document.getElementById("list");
 
-let SubTrack = (() => {
-  total = 0, nourishment = 0, service = 0, membership = 0;
-})()
+myForm.addEventListener('submit', onSubmit);
+
+let SubTrack = startApp()
+
+function startApp() {
+  return (() => {
+    total = 0, nourishment = 0, service = 0, membership = 0;
+  })();
+}
 
 // Create Sub
 
-addSub() {
-  const form = document.getElementById
-}
+function addSub(e) {
+  e.preventDefault();
+
 
 // Categorize Sub
 
-addCategory() {
-  const label = document.getElementById
-}
 
 // Update Sub
 
 
 // Delete Sub
 
-// Get Input Data
+function destroySub(id) {
+  subscription = subscription.filter((subscription) => subscription.id !== id);
+}
+
+
+// Get Amount
+
+const amounts = subscriptions.map((subscription) => subscription.amount);
+
+// Get List of Subs
+
+const listed = document.createElement("li");
+
+form.addEventListener("submit", addSub);
