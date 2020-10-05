@@ -9,11 +9,46 @@
   </head>
 
   <body>
-    
-    <div id="user"></div>
-    <div id="subs"></div>
-    
+    <div class="row">
+      <div class="user">
+        <div class="header">Your Subscriptions</div>
+        <div id="subscriptions"></div>
+        <div id="dates"></div>
+        <div class="budget-container">
+            <span id="total" class="month-amount">$ 0</span>
+          </div>
+      </div>
+
+        <select>
+            <optgroup label="Nourishment">
+              <option value="drink">Drink</option>
+              <option value="food">Food</option>
+              <option value="health">Health</option>
+            </optgroup>
+            <optgroup label="Service">
+              <option value="fitness">Fitness</option>
+              <option value="investment">Investment</option>
+              <option value="membership">Membership</option>
+            </optgroup>
+            <optgroup label="Product">
+              <option value="beauty">Beauty</option>
+              <option value="Tech">Tech</option>
+              <option value="fashion">Fashion</option>
+            </optgroup>
+        </select>
+
+      <div class="row">
+          <input class="form-control input-subscription-name" type="text" placeholder="Name">
+        </div>
+          <input class="form-control input-subscription-price" type="number" placeholder="Price">
+        </div>
+        <br>
+        <div class="btn">
+          <button type="button" class="btn btn-success btn-submit-subscription">&check;</button>
+        </div>
+    <div class="subscription-list"></div>
+    </div>
+
     <script src="src/script.js"></script>
-    <script src="src/subscription_model.js"></script>
   </body>
 </html>
