@@ -1,0 +1,4 @@
+<% if @subscription.errors.any? %>
+    $("<%= j(render 'shared/error_messages') %> ").prependTo('#form');
+<% else %>
+<% end %>

@@ -4,6 +4,7 @@ class SubscribersController < ApplicationController
     end 
 
     def create
+        render json: @subscriber
     end
 
     def new
@@ -13,11 +14,12 @@ class SubscribersController < ApplicationController
     end 
 
     def destroy
-    end 
+    end
 
     private
 
     def subber_params
+        params.permit(:name, :email, :id)
     end
 
 end 
