@@ -9,7 +9,24 @@
   </head>
   <div class="header">
     <h3><strong>SubTrack</strong></h3>
-    <h5>Monitor your monthly subscriptions!</h5>
+    <br>
+  </div>
+  <div class="user">
+    <form id="user-form">
+      <h2>Subscriber</h2>
+      <div class="msg"></div>
+      <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" placeholder="Name">
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input type="text" id="email" placeholder="Email Address">
+      </div>
+      <div class='btn'>
+        <input class="btn" type="submit" value="Submit">
+      </div>
+    </form>
   </div>
   <br>
   <div class="form">
@@ -40,8 +57,8 @@
             <input type="date" name="Date Subscribed">
           </div>
           <div>
-            <span>Amount:</span> 
-            <input type="number" name="amount" placeholder="Subscription Price">
+            <span>Price:</span> 
+            <input type="number" name="price" placeholder="Subscription Price">
           </div>
           <div class="form-control">
           </div>
@@ -53,15 +70,10 @@
     </div>
   </div>
     <div class="list">
-      <label for="subs">Subscriptions</label>
-      <ul id="list" class="list"></ul>
-      <input type="text" name="total" id="total"/>
-      <div id="button">
-        <input class="btn" type="submit" value="Delete">
-    </div>
-    <div id="button">
-      <input class="btn" type="submit" value="Update">
-  </div>
+      <h2>Subscription List</h2>
+      <ul id="list" class="list">
+        <input type="number" name="total" placeholder="Subscription Total">
+      </ul>
     <script src="src/script.js"></script>
   </body>
 </html>

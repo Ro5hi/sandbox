@@ -1,5 +1,5 @@
 class Subscription < ActiveRecord::Base
 
-    belongs_to :user
-
-end 
+    belongs_to :subscriber
+    
+end  

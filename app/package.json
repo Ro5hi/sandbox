@@ -1,5 +1,5 @@
 {
-  "name": "SubTrack",
+  "name": "subtrack_backend",
   "private": true,
   "dependencies": {
     "@rails/actioncable": "^6.0.0",

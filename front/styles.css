@@ -13,15 +13,32 @@ body {
     min-height: 100vh;
 }
 
+.user {
+    background-color: rgb(215, 227, 252);
+    padding-bottom: 25px;
+    padding-top: 25px;
+    padding-right: 25px;
+    padding-left: 25px;
+    margin-right: 25px;
+    margin-left: 25px;
+}
+
 .form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: rgb(206, 250, 229);
     padding-bottom: 25px;
     padding-top: 25px;
     padding-right: 25px;
     padding-left: 25px;
+    padding-right: 25px;
 }
 
 .header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding-bottom: 25px;
     padding-top: 25px;
     padding-right: 25px;
@@ -30,10 +47,13 @@ body {
 }
 
 .list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: rgb(241, 237, 168);
-    padding-bottom: 15px;
+    padding-bottom: 25px;
     padding-top: 15px;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-left: 15px;
+    padding-right: 25px;
+    padding-left: 25px;
+    margin-left: 25px;
 }

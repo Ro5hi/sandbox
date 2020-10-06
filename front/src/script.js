@@ -1,19 +1,11 @@
-console.log("SubTrack: Track your Subscriptions.")
-
 const form = document.getElementById("form");
 const category = document.getElementById("category");
 const amount = document.getElementById("amount");
 const list = document.getElementById("list");
 
 myForm.addEventListener('submit', onSubmit);
-
-let SubTrack = trackSubs()
-
-function trackSubs() {
-  return (() => {
-    total = 0, nourishment = 0, service = 0, membership = 0;
-  })();
-}
+myForm.addEventListener('update', onUpdate);
+myForm.addEventListener('delete', onDestroy);
 
 // Create Sub
 
@@ -36,12 +28,16 @@ function addSub() {
   })
 }
 
-
-// Categorize Sub
-
-
 // Update Sub
 
+/*
+function updateSub() {
+  const sub = { 
+    render addSub()
+  }
+
+}
+*/
 
 // Delete Sub
 
@@ -49,19 +45,21 @@ function destroySub(id) {
   subscription = subscription.filter((subscription) => subscription.id !== id);
 }
 
-// Get Total
+// List All Subs 
 
-function getTotal(){
-  var arr = document.getElementsByName('list');
-  var tot=0;
-  for(var i=0;i<arr.length;i++){
-      if(parseInt(arr[i].value))
-          total += parseInt(arr[i].value);
-  }
-  document.getElementById('total').value = total;
+function allSubs() {
+  var li = 
+  "<li>" + $('#item-name').val() + $('price').val() + $('#date').value() + $('#url').val() + "</li>" +
+  "<div id='button'><input class='btn' type='submit' value='Delete' onclick='destroySub(this);'></div>" +
+  "<div id='button'><input class='btn' type='submit' value='Update' onclick='updateSub(this);'></div>"
+
+  return li;
 }
 
+// Get Total Price on Subs
 
-// Get All-Subs 
+  let subsPrice = document.getElementById('price').value;
+  let subsAmount = document.getElementById('amount').value;
 
-form.addEventListener("submit", addSub);
+  let subsTotal = document.getElementById('total').value = subsAmount + subsAmount 
+  document.getElementById('subsTotal').value = parseFloat(subsPrice) + parseFloat(subsAmount)
