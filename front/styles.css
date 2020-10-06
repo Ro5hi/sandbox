@@ -6,15 +6,15 @@ html, body {
 }
 body {
     font-family: "Montserrat", sans-serif; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
     margin: 0;
     min-height: 100vh;
 }
 
-.user {
+.subber {
     background-color: rgb(215, 227, 252);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding-bottom: 25px;
     padding-top: 25px;
     padding-right: 25px;
@@ -33,20 +33,22 @@ body {
     padding-right: 25px;
     padding-left: 25px;
     padding-right: 25px;
+    margin-right: 25px;
+    margin-left: 25px;
 }
 
 .header {
     display: flex;
-    align-items: center;
     justify-content: center;
     padding-bottom: 25px;
     padding-top: 25px;
     padding-right: 25px;
     padding-left: 25px;
     margin-right: 25px;
+    margin-bottom: 25px;
 }
 
-.list {
+.table {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -55,5 +57,7 @@ body {
     padding-top: 15px;
     padding-right: 25px;
     padding-left: 25px;
+    margin-right: 25px;
     margin-left: 25px;
+    margin-top: 25px;
 }

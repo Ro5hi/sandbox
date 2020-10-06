@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <div class="header">
-    <h3><strong>SubTrack</strong></h3>
+    <h1><strong>SubTrack</strong></h1>
     <br>
   </div>
-  <div class="user">
-    <form id="user-form">
+  <div class="subber">
+    <form id="subber-form">
       <h2>Subscriber</h2>
       <div class="msg"></div>
       <div>
@@ -24,7 +24,7 @@
         <input type="text" id="email" placeholder="Email Address">
       </div>
       <div class='btn'>
-        <input class="btn" type="submit" value="Submit">
+        <input class="btn" type="submit" value="Save">
       </div>
     </form>
   </div>
@@ -34,6 +34,7 @@
       <form onsubmit="createSub(); return false;">
         <form>
           <div>
+            <h2>Add Subscription</h2>
             <div id="category">
               <span>Category:</span> 
               <select name="type">
@@ -62,18 +63,26 @@
           </div>
           <div class="form-control">
           </div>
-          <div id="button"><span>Add Subscription</span>
-            <input class="btn" type="submit" value="Submit">
+          <div id="button">
+            <input class="btn" type="submit" value="Add">
           </div>
         </form>
       </form>
     </div>
   </div>
-    <div class="list">
-      <h2>Subscription List</h2>
-      <ul id="list" class="list">
-        <input type="number" name="total" placeholder="Subscription Total">
-      </ul>
+  
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Link</th>
+        <th>Category</th>
+        <th>Price</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody id="list"></tbody>
+  </table>
     <script src="src/script.js"></script>
   </body>
 </html>

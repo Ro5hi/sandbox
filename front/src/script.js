@@ -1,15 +1,18 @@
-const form = document.getElementById("form");
-const category = document.getElementById("category");
-const amount = document.getElementById("amount");
-const list = document.getElementById("list");
+// Constants
 
-myForm.addEventListener('submit', onSubmit);
-myForm.addEventListener('update', onUpdate);
-myForm.addEventListener('delete', onDestroy);
+class SubTrack {
 
-// Create Sub
+  const subForm = document.getElementById("form");
+  const subName = document.getElementById("item-name")
+  const subCategory = document.getElementById("category");
+  const subAmount = document.getElementById("amount");
+  const subsList = document.getElementById("list");
+  
+  const subberForm = document.getElementById("subber")
+  const subberName = document.querySelector("name");
+  const subberEmail = document.querySelector("email");
 
-function addSub() {
+
   const sub = {
     category: document.getElementById('category').value,
     name: document.getElementById('name').value,
@@ -17,49 +20,83 @@ function addSub() {
     price: document.getElementById('amount').value
   }
 
-  fetch("http://localhost:3000/app/subs", {
+  // Event Listeners
+
+  subberForm.addEventListener('save', onSubmit);
+  form.addEventListener('add', onAdd);
+  form.addEventListener('update', onUpdate);
+  form.addEventListener('delete', onDestroy);
+
+  // Create Sub
+
+  fetch('localhost:3000/subscriptions', {
     method: 'POST',
-    body: JSON.stringify(subscription),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(sub),
   })
-  .then(resp => resp.json() )
-  .then(subscription => {
-    clearSubsHtml()
-    getSubs()
+  .then(response => response.json())
+  .then(sub => {
+    console.log('Added:', sub);
   })
-}
+  .catch((error) => {
+    console.error('Error:', error);
+  });
 
-// Update Sub
+  // Render Sub 
 
-/*
-function updateSub() {
-  const sub = { 
-    render addSub()
+
+  // List Subs When Adding
+  
+  function allSubs() {
+  var li = "<li>" + $('#item-name').val() + $('price').val() + $('#date').value() + $('#url').val() + "</li>" +
+    "<div id='button'><input class='btn' type='submit' value='Delete' onclick='destroySub(this);'></div>" +
+    "<div id='button'><input class='btn' type='submit' value='Update' onclick='updateSub(this);'></div>";
+
+    return li;
   }
 
+
+  // Update Sub
+
+  fetch('localhost:3000/subscriptions', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(sub),
+  })
+  .then(response => response.json())
+  .then(sub => {
+    console.log('Added:', sub);
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  });
+  
+  // Delete Sub
+
+  fetch('localhost:3000/subscriptions', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(sub),
+  })
+  .then(response => response.json())
+  .then(sub => {
+    console.log('Added:', sub);
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  });
+
+  // Get Total Price on Subs
+
+    let subsPrice = document.getElementById('price').value;
+    let subsAmount = document.getElementById('amount').value;
+
+    let subsTotal = document.getElementById('total').value = subsAmount + subsAmount 
+    document.getElementById('subsTotal').value = parseFloat(subsPrice) + parseFloat(subsAmount)
 }
-*/
-
-// Delete Sub
-
-function destroySub(id) {
-  subscription = subscription.filter((subscription) => subscription.id !== id);
-}
-
-// List All Subs 
-
-function allSubs() {
-  var li = 
-  "<li>" + $('#item-name').val() + $('price').val() + $('#date').value() + $('#url').val() + "</li>" +
-  "<div id='button'><input class='btn' type='submit' value='Delete' onclick='destroySub(this);'></div>" +
-  "<div id='button'><input class='btn' type='submit' value='Update' onclick='updateSub(this);'></div>"
-
-  return li;
-}
-
-// Get Total Price on Subs
-
-  let subsPrice = document.getElementById('price').value;
-  let subsAmount = document.getElementById('amount').value;
-
-  let subsTotal = document.getElementById('total').value = subsAmount + subsAmount 
-  document.getElementById('subsTotal').value = parseFloat(subsPrice) + parseFloat(subsAmount)
