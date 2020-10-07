@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2) do
     t.string "link"
     t.string "category"
     t.integer "price"
-    t.integer "user_id"
+    t.integer "subscriber_id"
   end
 
 end

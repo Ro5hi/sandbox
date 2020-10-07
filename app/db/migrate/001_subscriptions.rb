@@ -5,7 +5,7 @@ class Subscriptions < ActiveRecord::Migration[6.0]
         t.string :link
         t.string :category
         t.integer :price
-        t.integer :user_id
+        t.integer :subscriber_id
     end 
   end 
 end 

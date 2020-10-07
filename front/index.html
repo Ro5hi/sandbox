@@ -21,12 +21,12 @@
         <input type="text" id="name" placeholder="Name">
       </div>
       <div>
-        <label for="name">Email:</label>
-        <input type="text" id="name" placeholder="Email Address">
+        <label for="email">Email:</label>
+        <input type="text" id="email" placeholder="Email Address">
       </div>
       <!--Save Subscriber-->
       <div class='btn'>
-        <input class="btn" type="submit" value="Save">
+        <input class="btn" type="submit" value="Submit">
       </div>
     </form>
   </div>
@@ -51,7 +51,7 @@
           <!--Subscription Information-->
           <div>
             <span>Name:</span> 
-            <input type="text" name="item-name" placeholder="Subscription Name">
+            <input type="text" name="name" placeholder="Subscription Name">
           </div>
           <div>
             <span>Link:</span> 
@@ -69,7 +69,7 @@
           </div>
           <!--Submit Subscription-->
           <div id="button">
-            <input class="btn" type="submit" value="Add">
+            <input class="btn" type="submit" value="Submit">
           </div>
         </form>
       </form>
@@ -90,6 +90,9 @@
     </thead>
     <tbody id="subs-list"></tbody>
   </table>
+    <script src="src/subscription.js"></script>
+    <script src="src/subscriber.js"></script>    
     <script src="src/script.js"></script>
+    <script src="src/index.js"></script>
   </body>
 </html>

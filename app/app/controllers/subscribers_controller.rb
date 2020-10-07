@@ -1,9 +1,12 @@
 class SubscribersController < ApplicationController
 
     def index
+        @subscribers = Subscriber.all
+        render json: @subscribers
     end 
 
     def create
+        binding.pry
         render json: @subscriber
     end
 
