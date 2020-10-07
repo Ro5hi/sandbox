@@ -1,3 +1,5 @@
+const BACKEND_URL = "https://localhost:3000";
+
 class Script {
     function addSubToList(sub) {
         const list = document.querySelector('subs-list');
@@ -7,14 +9,16 @@ class Script {
             <td>${sub.category}</td>
             <td>${sub.link}</td>
             <td>${sub.price}</td>
-            <td>${sub.subscriber}</td>
+            <td>${subberName.name}</td>
+            <td>${subberEmail.email}</td>
             <td><a href="#" class="btn btn-danger btn-sm delete">X</a></td>
-            <td><a href="#" class="btn btn-danger btn-sm edit">O</a></td>
-        `;
+            <td><a href="#" class="btn btn-info btn-sm edit">O</a></td> 
+            `;
+
         list.appendChild(row);
     }
 
-  fetch('localhost:3000/subscriptions', {
+  fetch('${BACKEND_URL}/subscriptions', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -22,7 +26,7 @@ class Script {
     body: JSON.stringify(sub),
   })
   .then(response => response.json())
-  .then(sub => {
+  .then(json => {
     console.log('Added:', sub);
   })
   .catch((error) => {
@@ -40,7 +44,7 @@ class Script {
       const div = document.createElement('div');
       div.className = `alert alert-${className}`;
       div.appendChild(document.createTextNode(message));
-      const container = document.querySelector('.container');
+      let container = document.querySelector('.container');
       const form = document.querySelector('sub-form');
       container.insertBefore(div, form);
       // Automatically gone in 3 seconds
@@ -53,8 +57,8 @@ class Script {
       document.querySelector('link').value = '';
       document.querySelector('price').value = '';
       document.querySelector('subscriber').value = '';
-  }
-}
+      document.querySelector('email').value = '';
+  };
   
   // Save Subscriber 
 
@@ -132,13 +136,4 @@ class Script {
 
     // Clear fields
       Script.clearFields();
-})  
-
-  /* Get Total Price on Subs
-
-    let subsPrice = document.getElementById('price').value;
-    let subsAmount = document.getElementById('amount').value;
-
-    let subsTotal = document.getElementById('total').value = subsAmount + subsAmount 
-    document.getElementById('subsTotal').value = parseFloat(subsAmount) + parseFloat(subsAmount)
-  */
+}
