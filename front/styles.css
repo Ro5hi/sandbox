@@ -23,7 +23,7 @@ body {
     margin-left: 25px;
 }
 
-.form {
+.sub-form {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -48,7 +48,7 @@ body {
     margin-bottom: 25px;
 }
 
-.table {
+.subs-list {
     display: flex;
     align-items: center;
     justify-content: center;

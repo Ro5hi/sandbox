@@ -8,6 +8,7 @@ class SubscribersController < ApplicationController
     end
 
     def new
+        @subscriber = Subscriber.new
     end 
 
     def update

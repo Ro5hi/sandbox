@@ -10,6 +10,7 @@ class SubscriptionsController < ApplicationController
     end
 
     def create
+        binding.pry
         @subscription = Subscriber.subscriptions.build(sub_params)
         render json: @subscription
     end 
@@ -32,7 +33,7 @@ class SubscriptionsController < ApplicationController
     private 
 
     def sub_params 
-        params.permit(:name, :link, :category, :price)
+        params.permit(:name, :link, :category, :price, :id, :user_id)
     end
 
 end

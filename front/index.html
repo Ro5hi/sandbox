@@ -11,6 +11,7 @@
     <h1><strong>SubTrack</strong></h1>
     <br>
   </div>
+  <!--Associated Subscriber Form-->
   <div class="subber">
     <form id="subber-form">
       <h2>Subscriber</h2>
@@ -20,24 +21,26 @@
         <input type="text" id="name" placeholder="Name">
       </div>
       <div>
-        <label for="email">Email:</label>
-        <input type="text" id="email" placeholder="Email Address">
+        <label for="name">Email:</label>
+        <input type="text" id="name" placeholder="Email Address">
       </div>
+      <!--Save Subscriber-->
       <div class='btn'>
         <input class="btn" type="submit" value="Save">
       </div>
     </form>
   </div>
   <br>
-  <div class="form">
-    <div id="form">
-      <form onsubmit="createSub(); return false;">
+  <!--Add Subscription Form-->
+  <div class="sub-form">
+    <div id="sub-form">
         <form>
           <div>
             <h2>Add Subscription</h2>
             <div id="category">
               <span>Category:</span> 
               <select name="type">
+                <option value=""></option>
                 <option value="nourishment">Nourishment</option>
                 <option value="membership">Membership</option>
                 <option value="service">Service</option>
@@ -45,13 +48,14 @@
               </select>
             </div>  
           </div>
+          <!--Subscription Information-->
           <div>
             <span>Name:</span> 
             <input type="text" name="item-name" placeholder="Subscription Name">
           </div>
           <div>
             <span>Link:</span> 
-            <input type="url" name="url" placeholder="Website">
+            <input type="url" name="link" placeholder="Website">
           </div>
           <div>
             <span>Date:</span> 
@@ -63,6 +67,7 @@
           </div>
           <div class="form-control">
           </div>
+          <!--Submit Subscription-->
           <div id="button">
             <input class="btn" type="submit" value="Add">
           </div>
@@ -70,18 +75,19 @@
       </form>
     </div>
   </div>
-  
-  <table class="table">
+  <!--Subscription List -->
+  <table class="subs-list">
     <thead>
       <tr>
-        <th>Name</th>
-        <th>Link</th>
-        <th>Category</th>
-        <th>Price</th>
+        <th><u>Name</u></th>
+        <th><u>Category</u></th>
+        <th><u>Link</u></th>
+        <th><u>Price</u></th>
+        <th><u>Subscriber</u></th>
         <th></th>
       </tr>
     </thead>
-    <tbody id="list"></tbody>
+    <tbody id="subs-list"></tbody>
   </table>
     <script src="src/script.js"></script>
   </body>
