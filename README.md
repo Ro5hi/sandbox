@@ -1,5 +1,5 @@
 ## SubTrack
-SubTrack allows the user to track their subscriptions. User can add their monthly subscription, date, and link to be able to easily access their account from there. 
+SubTrack allows the user to track their subscriptions. User can add their monthly subscription, label it, add the subscription date, and the subscription URL to be able to easily access their account from there.
 
 ## Built with:
 Structured using HTML, CSS, Javascript and Rails.
