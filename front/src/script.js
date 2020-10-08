@@ -5,8 +5,8 @@
     const list = document.getElementById("subs-list");
     const row = document.createElement("tr");
       row.innerHTML = `
-            <td>${sub.name}</td>
-            <td>${sub.category}</td>
+            <td>${subName.name}</td>
+            <td>${sub.type}</td>
             <td>${sub.Url}</td>
             <td>${sub.price}</td>
             <td>${subberName.name}</td>
@@ -15,13 +15,13 @@
             <td><a href="#" class="btn btn-info btn-sm edit">O</a></td> 
             `;
         list.appendChild(row)
-        debugger
+        debugger 
     fetch(`${BACKEND_URL}/subscriptions`, {
       method: "POST",
       headers: {
         "Content-Type": `application/json`,
       },
-      body: JSON.stringify({"name": name, "category": category, "link": link, "price": price, "subscriber": subberName}),
+      body: JSON.stringify({"name": name, "type": type, "link": link, "price": price, "subscriber": subberName, "email": subberEmail}),
     })
     .then(response => response.json())
     .then(json => {
@@ -60,7 +60,7 @@
 
   clearFields() {
       document.getElementById("subname").value = "";
-      document.getElementById("category").value = "";
+      document.getElementById("type").value = "";
       document.getElementById("link").value = "";
       document.getElementById("price").value = "";
       document.getElementById("name").value = "";
@@ -114,28 +114,25 @@
 
   // Add Subscription
 
-  document.querySelector(".sub-form").addEventListener("add", (e) => {
+  document.querySelector(".sub-form").addEventListener("submit", (e) => {
     
     // Prevent Refresh
     e.preventDefault();
 
     // Get form values
-    const subName = document.getElementById("name").value;
-    const subCategory = document.getElementById("category").value;
+    const subName = document.getElementById("subname").value;
+    const subCategory = document.getElementById("type").value;
     const subUrl = document.getElementById("link").value;
     const subPrice = document.getElementById("price").value;
-    const subberName = e.target.name.value;
-    const subberEmail = e.target.email.value;
     
     // Validate
- 
-    if(subName === "" || subCategory === "" || subUrl === "" || subPrice === "" || subberName === "" || subberEmail === "") {
+    if(subName === "" || subCategory === "" || subUrl === "" || subPrice === "") {
         this.showAlert("Fill in all fields", "danger");
     } else { 
-        const sub = new Subscription(subName, subCategory, subUrl, subPrice, subberName);
+        const sub = new Subscription(subName, subCategory, subUrl, subPrice);
 
       // Add sub to script
-      this.addSubToList(sub);
+      Script.addSubToList(sub);
 
       // Show success
       // this.showAlert("Subscription added", "success");

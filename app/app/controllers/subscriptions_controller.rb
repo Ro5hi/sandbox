@@ -6,13 +6,13 @@ class SubscriptionsController < ApplicationController
     end 
 
     def new
-        binding.pry
         @subscription = Subscription.new
     end
 
     def create
-        binding.pry
+        @subscription = Subscription.new(sub_params)
         @subscription = Subscriber.subscriptions.build(sub_params)
+        @subscription.save
         render json: @subscription
     end 
 

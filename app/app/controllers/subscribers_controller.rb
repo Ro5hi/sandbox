@@ -6,7 +6,8 @@ class SubscribersController < ApplicationController
     end 
 
     def create
-        binding.pry
+        @subscriber = Subscriber.new(subber_params)
+        @subscriber.save
         render json: @subscriber
     end
 
@@ -26,7 +27,7 @@ class SubscribersController < ApplicationController
     private
 
     def subber_params
-        params.permit(:name, :email, :subscriber_id, :id)
+        params.permit(:name, :email)
     end
 
 end 
