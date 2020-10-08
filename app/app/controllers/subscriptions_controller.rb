@@ -6,6 +6,7 @@ class SubscriptionsController < ApplicationController
     end 
 
     def new
+        binding.pry
         @subscription = Subscription.new
     end
 
@@ -16,12 +17,9 @@ class SubscriptionsController < ApplicationController
     end 
 
     def update
-        @subscription.update(sub_paramas)
-        if @subscription.save
-            render json: @subscription
-        else 
-            render json: { errors: @subscription.errors}
-        end
+        @subscription.update(sub_params)
+        @subscription.save
+        render json: @subscription
     end 
 
     def destroy
@@ -33,7 +31,7 @@ class SubscriptionsController < ApplicationController
     private 
 
     def sub_params 
-        params.permit(:name, :link, :category, :price, :id, :user_id)
+        params.permit(:name, :link, :category, :price, :id, :subscriber_id)
     end
 
 end

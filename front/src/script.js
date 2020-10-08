@@ -2,12 +2,12 @@
 
   class Script { 
     addSubToList(sub) {
-    const list = document.querySelector("subs-list");
+    const list = document.getElementById("subs-list");
     const row = document.createElement("tr");
       row.innerHTML = `
             <td>${sub.name}</td>
             <td>${sub.category}</td>
-            <td>${sub.link}</td>
+            <td>${sub.Url}</td>
             <td>${sub.price}</td>
             <td>${subberName.name}</td>
             <td>${subberEmail.email}</td>
@@ -15,7 +15,7 @@
             <td><a href="#" class="btn btn-info btn-sm edit">O</a></td> 
             `;
         list.appendChild(row)
-
+        debugger
     fetch(`${BACKEND_URL}/subscriptions`, {
       method: "POST",
       headers: {
@@ -50,8 +50,8 @@
       const div = document.createElement("div");
       div.className = `alert alert-${className}`;
       div.appendChild(document.createTextNode(message));
-      let container = document.querySelector(".container");
-      const form = document.querySelector("sub-form");
+      const container = document.querySelector(".container");
+      const form = document.getElementById("sub-form");
       container.insertBefore(div, form);
 
       // Automatically gone in 3 seconds
@@ -59,17 +59,18 @@
   }
 
   clearFields() {
-      document.querySelector("name").value = "";
-      document.querySelector("category").value = "";
-      document.querySelector("link").value = "";
-      document.querySelector("price").value = "";
-      document.querySelector("subscriber").value = "";
-      document.querySelector("email").value = "";
+      document.getElementById("subname").value = "";
+      document.getElementById("category").value = "";
+      document.getElementById("link").value = "";
+      document.getElementById("price").value = "";
+      document.getElementById("name").value = "";
+      document.getElementById("email").value = "";
   };
   
   // Save Subscriber
     saveSubber() {
     const submit = document.querySelector(".subber").addEventListener("submit", (e) => {
+      
       // Prevent Default
       e.preventDefault();
       const subberName = e.target.name.value;
@@ -98,13 +99,13 @@
         });
       }
 
-      // Show success
+      /* Show success
       
       this.showAlert("Subscriber saved", "success");
 
       // Clear fields
   
-      this.clearFields();
+      this.clearFields();  */
   });
 
   // Render Subscription
@@ -114,38 +115,36 @@
   // Add Subscription
 
   document.querySelector(".sub-form").addEventListener("add", (e) => {
+    
     // Prevent Refresh
     e.preventDefault();
 
     // Get form values
-    const name = document.querySelector("name").value;
-    const category = document.querySelector("category").value;
-    const link = document.querySelector("link").value;
-    const price = document.querySelector("price").value;
-    const subscriber = document.querySelector("subber").value;
+    const subName = document.getElementById("name").value;
+    const subCategory = document.getElementById("category").value;
+    const subUrl = document.getElementById("link").value;
+    const subPrice = document.getElementById("price").value;
+    const subberName = e.target.name.value;
+    const subberEmail = e.target.email.value;
     
     // Validate
-
-    if(name === "" || category === "" || link === "" || price === "" || subscriber === "") {
+ 
+    if(subName === "" || subCategory === "" || subUrl === "" || subPrice === "" || subberName === "" || subberEmail === "") {
         this.showAlert("Fill in all fields", "danger");
     } else { 
-        const sub = new Subscription(name, category, link, price, subscriber);
-      // debugger
-        // Add sub to script
-        this.addSubToList(sub);
+        const sub = new Subscription(subName, subCategory, subUrl, subPrice, subberName);
 
-        // Clear fields
+      // Add sub to script
+      this.addSubToList(sub);
+
+      // Show success
+      // this.showAlert("Subscription added", "success");
+      
+      // Clear fields
         this.clearFields();
         }
     });
 
-    // // Instantiate
-    //   const subscription = new Subscription(name, category, link, price, subscriber);
 
-    // // Show success
-    //   this.showAlert("Subscription added", "success");
-
-    // // Clear fields
-    //   this.clearFields();
   }
 }

@@ -15,6 +15,9 @@ class SubscribersController < ApplicationController
     end 
 
     def update
+        @subscriber.update(subber_params)
+        @subscriber.save
+        render json: @subscriber
     end 
 
     def destroy
@@ -23,7 +26,7 @@ class SubscribersController < ApplicationController
     private
 
     def subber_params
-        params.permit(:name, :email, :id)
+        params.permit(:name, :email, :subscriber_id, :id)
     end
 
 end 
