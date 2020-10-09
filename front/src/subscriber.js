@@ -3,6 +3,9 @@ class Subscriber {
       (this.name = name),
       (this.email = email)
     }
+
+    // Add email to table as TR, unsure if done correctly
+    
     addEmailToList() {
       const list = document.getElementById("subs-list");
       const row = document.createElement("tr");

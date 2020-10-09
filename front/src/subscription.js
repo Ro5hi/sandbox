@@ -22,7 +22,7 @@ class Subscription {
           list.appendChild(row)
     }
 
-    deleteSub(el) {
+    deleteSub(el) { // Unsure of Delete function implemented correctly
       if(el.classList.contains("delete")) {
         el.parentElement.parentElement.remove();
     }

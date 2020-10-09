@@ -36,9 +36,9 @@ class Script {
             }
           
 
-          // Add Subscription
+          // Add Subscription 
 
-          saveSub(); {
+          saveSub(); { // Uncaught Reference Error: SaveSub()
           const save = document.querySelector(".sub-form").addEventListener("submit", (e) => {
           e.preventDefault();
 
