@@ -1,6 +1,10 @@
 const BACKEND_URL = "http://localhost:3000";
 
 class Script {
+  constructor() {
+    this.subbers = [];
+    this.subbies = [];
+  }
   // Save Subscriber
   saveSubber() {
     const submit = document
@@ -35,6 +39,34 @@ class Script {
       });
   }
 
+    getSubbers() {
+      fetch(`${BACKEND_URL}/subscribers`)
+        .then((response) => response.json())
+        .then((json) => {
+          console.log(json)
+          json.forEach(subber => {
+            this.subbers.push(subber)
+          })
+          const subberList = document.getElementById('sub-save')
+          this.subbers.forEach(subber => {
+            const option = document.createElement('OPTION')
+            option.text = subber.email
+            option.value = subber.id
+            
+            subberList.appendChild(option);
+          })
+          alert("Subscriber saved!");
+        })
+        .catch((error) => {
+          alert("Error!/nCouldn't save subscriber.");
+        });
+        
+    }
+
+    
+
+    
+  
   // Save Subscription
 
   saveSub() {
@@ -48,6 +80,7 @@ class Script {
         const subCategory = document.getElementById("type").value;
         const subUrl = document.getElementById("link").value;
         const subPrice = document.getElementById("price").value;
+        const sub_id = document.getElementById("sub-save").value;
 
         // Validate then add
         if (
@@ -69,6 +102,7 @@ class Script {
               category: subCategory,
               link: subUrl,
               price: subPrice,
+              subscriber_id: sub_id
             }),
           })
             .then((response) => response.json())

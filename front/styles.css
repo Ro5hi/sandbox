@@ -48,6 +48,20 @@ body {
     margin-bottom: 25px;
 }
 
+.sub-id {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(206, 250, 229);
+    padding-bottom: 25px;
+    padding-top: 25px;
+    padding-right: 25px;
+    padding-left: 25px;
+    padding-right: 25px;
+    margin-right: 25px;
+    margin-left: 25px;
+}
+
 .subs-list {
     display: flex;
     align-items: center;
