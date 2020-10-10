@@ -5,14 +5,14 @@ class Script {
   saveSubber() { 
     const submit = document.querySelector(".subber").addEventListener("submit", (e) => {
       e.preventDefault();
-      debugger 
+
       const subberName = e.target.name.value;
       const subberEmail = e.target.email.value;
     
       // Input Validations
       const subber = new Subscriber(subberName, subberEmail);
       if(subberName === "" || subberEmail === "") {
-        alert("Name and email is required", "danger");
+        alert("Name and email is required.");
       } else {
         fetch(`${BACKEND_URL}/subscribers`, {
           method: "POST",
@@ -34,7 +34,7 @@ class Script {
     }
 
         // Save Subscription 
-        
+
         saveSub() { 
           
           const save = document.querySelector(".sub-form").addEventListener("submit", (e) => {
@@ -58,12 +58,15 @@ class Script {
                 "Content-Type": `application/json`,
                 "Accept": `application/json`
               },
-              body: JSON.stringify({"name": subName, "category": subCategory, "link": subUrl, "price": subPrice}),
+              body: JSON.stringify({
+                "name": subName, 
+                "category": subCategory, 
+                "link": subUrl, 
+                "price": subPrice}),
             })
             .then(response => response.json())
             .then(json => {
               alert("Added Subscription!");{
-
               }
             })
             .catch((error) => {
