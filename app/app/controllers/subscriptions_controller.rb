@@ -11,7 +11,6 @@ class SubscriptionsController < ApplicationController
 
     def create
         @subscription = Subscription.new(sub_params)
-        @subscription = Subscriber.subscriptions.build(sub_params)
         @subscription.save
         render json: @subscription
     end 
@@ -31,7 +30,7 @@ class SubscriptionsController < ApplicationController
     private 
 
     def sub_params 
-        params.permit(:name, :link, :category, :price, :id, :subscriber_id, :subscription)
+        params.permit(:subscription, :name, :link, :category, :price, :id, :subscriber_id,)
     end
 
 end
