@@ -34,9 +34,6 @@ class Script {
     }
 
         // Save Subscription 
-
-        // line 39 unexpected token "{" ? need debugging
- 
         
         saveSub() { 
           
