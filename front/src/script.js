@@ -5,9 +5,10 @@ class Script {
   saveSubber() { 
     const submit = document.querySelector(".subber").addEventListener("submit", (e) => {
       e.preventDefault();
+      debugger 
       const subberName = e.target.name.value;
       const subberEmail = e.target.email.value;
-      
+    
       // Input Validations
       const subber = new Subscriber(subberName, subberEmail);
       if(subberName === "" || subberEmail === "") {
@@ -23,23 +24,24 @@ class Script {
         })
         .then(response => response.json())
         .then(json => {
-          alert("Subscriber saved!");{
-          }
+          alert("Subscriber saved!");
         })
         .catch((error) => {
           alert("Error!/nCouldn't save subscriber.");
         }
         )}
       })
-      
+    }
 
         // Save Subscription 
 
         // line 39 unexpected token "{" ? need debugging
-        const sub = new Subscription(subName, subCategory, subUrl, subPrice);
+ 
         
-        saveSub(sub) { 
+        saveSub() { 
+          
           const save = document.querySelector(".sub-form").addEventListener("submit", (e) => {
+       
             e.preventDefault();
             
             // Sub Form
@@ -47,7 +49,6 @@ class Script {
             const subCategory = document.getElementById("type").value;
             const subUrl = document.getElementById("link").value;
             const subPrice = document.getElementById("price").value;
-            
           
 
           // Validate then add
@@ -74,5 +75,4 @@ class Script {
             )}
           })
         }
-      }
     }
