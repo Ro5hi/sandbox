@@ -3,9 +3,11 @@ const BACKEND_URL = "http://localhost:3000";
 class Script {
   constructor() {
     this.subbers = [];
-    this.subbies = [];
+    this.subs = [];
   }
+
   // Save Subscriber
+  
   saveSubber() {
     const submit = document
       .querySelector(".subber")
@@ -40,10 +42,9 @@ class Script {
   }
 
     getSubbers() {
-      fetch(`${BACKEND_URL}/subscribers`)
+      fetch(`${BACKEND_URL}/subscribers/${this.id}`)
         .then((response) => response.json())
         .then((json) => {
-          console.log(json)
           json.forEach(subber => {
             this.subbers.push(subber)
           })
@@ -63,10 +64,17 @@ class Script {
         
     }
 
-    
+  subsList() {
+    fetch(`${BACKEND_URL}/subscriptions`)
+    .then(resp => resp.json())
+    .then(sub => {
+      for (const subs of subs){
+        let s = new Subscription(sub.name, sub.email, sub.category, sub.link, sub.price)
+        s.renderSubs
+      }
+    })
+  }
 
-    
-  
   // Save Subscription
 
   saveSub() {

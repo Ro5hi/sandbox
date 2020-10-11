@@ -33,7 +33,7 @@ class SubscribersController < ApplicationController
     private
 
     def subber_params
-        params.permit(:name, :email)
+        params.require(:subscriber).permit(:name, :email)
     end
 
     def set_subber
