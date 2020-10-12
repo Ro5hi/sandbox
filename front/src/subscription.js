@@ -14,19 +14,6 @@ class Subscription {
 
   BACKEND_URL = "http://localhost:3000";
 
-  renderSubs() {
-    let subsTable = document.getElementById.name("subs-list");
-
-    subsTable.innerHTML += `
-        <td>${subName.name}</td>
-         <td>${subCategory.category}</td>
-         <td>${subLink.link}</td>
-         <td>${subPrice.price}</td>
-         <td>${sub_id}</td>
-         <td><a href="#" class="btn btn-danger btn-sm Delete">X</a></td>
-    `;
-  }
-
   deleteSub(el) {
     if (el.classList.contains("delete")) {
       el.parentElement.parentElement.remove();

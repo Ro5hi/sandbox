@@ -63,11 +63,31 @@ class Script {
       });
   }
 
+  
+  renderSubs() {
+    let subsTable = document.getElementById.name("subs-list");
+
+    const subName = document.getElementById("subname").value;
+    const subCategory = document.getElementById("type").value;
+    const subUrl = document.getElementById("link").value;
+    const subPrice = document.getElementById("price").value;
+    const sub_id = document.getElementById("sub-save").value;
+
+    subsTable.innerHTML += `
+         <tr><td>${subName}</td></tr>
+         <tr><td>${subCategory}</td></tr>
+         <tr><td>${subUrl}</td></tr>
+         <tr><td>${subPrice}</td></tr>
+         <tr><td>${sub_id.email}</td></tr>
+         <tr><td><a href="#" class="btn btn-danger btn-sm Delete">X</a></td></tr>
+    `;
+  }
+
   subsList() {
     fetch(`${BACKEND_URL}/subscriptions`)
       .then((resp) => resp.json())
       .then((sub) => {
-        for (const subs of subs) {
+        for (const sub of subs) {
           let s = new Subscription(
             sub.name,
             sub.email,
@@ -75,7 +95,7 @@ class Script {
             sub.link,
             sub.price
           );
-          s.renderSubs;
+          s.renderSubs()
         }
       });
   }
