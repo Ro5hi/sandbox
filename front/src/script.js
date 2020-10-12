@@ -7,7 +7,7 @@ class Script {
   }
 
   // Save Subscriber
-  
+
   saveSubber() {
     const submit = document
       .querySelector(".subber")
@@ -41,38 +41,43 @@ class Script {
       });
   }
 
-    getSubbers() {
-      fetch(`${BACKEND_URL}/subscribers/${this.id}`)
-        .then((response) => response.json())
-        .then((json) => {
-          json.forEach(subber => {
-            this.subbers.push(subber)
-          })
-          const subberList = document.getElementById('sub-save')
-          this.subbers.forEach(subber => {
-            const option = document.createElement('OPTION')
-            option.text = subber.email
-            option.value = subber.id
-            
-            subberList.appendChild(option);
-          })
-          alert("Subscriber saved!");
-        })
-        .catch((error) => {
-          alert("Error!/nCouldn't save subscriber.");
+  getSubbers() {
+    fetch(`${BACKEND_URL}/subscribers`)
+      .then((response) => response.json())
+      .then((json) => {
+        json.forEach((subber) => {
+          this.subbers.push(subber);
         });
-        
-    }
+        const subberList = document.getElementById("sub-save");
+        this.subbers.forEach((subber) => {
+          const option = document.createElement("OPTION");
+          option.text = subber.email;
+          option.value = subber.id;
+
+          subberList.appendChild(option);
+        });
+        alert("Subscriber saved!");
+      })
+      .catch((error) => {
+        alert("Error!/nCouldn't save subscriber.");
+      });
+  }
 
   subsList() {
     fetch(`${BACKEND_URL}/subscriptions`)
-    .then(resp => resp.json())
-    .then(sub => {
-      for (const subs of subs){
-        let s = new Subscription(sub.name, sub.email, sub.category, sub.link, sub.price)
-        s.renderSubs
-      }
-    })
+      .then((resp) => resp.json())
+      .then((sub) => {
+        for (const subs of subs) {
+          let s = new Subscription(
+            sub.name,
+            sub.email,
+            sub.category,
+            sub.link,
+            sub.price
+          );
+          s.renderSubs;
+        }
+      });
   }
 
   // Save Subscription
@@ -110,7 +115,7 @@ class Script {
               category: subCategory,
               link: subUrl,
               price: subPrice,
-              subscriber_id: sub_id
+              subscriber_id: sub_id,
             }),
           })
             .then((response) => response.json())
