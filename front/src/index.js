@@ -5,4 +5,4 @@ const script = new Script();
     script.getSubbers();
     script.subsList();
     script.renderSubs();
-    script.deleteSub(el);
+    script.deleteSub();

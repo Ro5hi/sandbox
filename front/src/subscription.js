@@ -4,17 +4,13 @@ class Subscription {
       (this.link = link),
       (this.email = email),
       (this.category = category),
-      (this.price = price)(
-        (this.subscriber = subscribers.map(
-          (subscriber) =>
-            new Subscriber(subber.sub, subber.sub_id)
-        ))
-      );
+      (this.price = price)
+      ;
   }
 
   BACKEND_URL = "http://localhost:3000";
 
-  deleteSub(el) {
+  deleteSub() {
     if (el.classList.contains("delete")) {
       el.parentElement.parentElement.remove();
     }

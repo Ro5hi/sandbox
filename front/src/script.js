@@ -65,7 +65,7 @@ class Script {
 
   
   renderSubs() {
-    let subsTable = document.getElementById.name("subs-list");
+    let subsTable = document.getElementById("subs-list");
 
     const subName = document.getElementById("subname").value;
     const subCategory = document.getElementById("type").value;
@@ -86,14 +86,15 @@ class Script {
   subsList() {
     fetch(`${BACKEND_URL}/subscriptions`)
       .then((resp) => resp.json())
-      .then((sub) => {
+      .then((subs) => {
         for (const sub of subs) {
           let s = new Subscription(
-            sub.name,
-            sub.email,
             sub.category,
+            sub.name,
             sub.link,
-            sub.price
+            sub.price,
+            sub.email,
+            console.log("js obj", sub)
           );
           s.renderSubs()
         }
