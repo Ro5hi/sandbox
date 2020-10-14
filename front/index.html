@@ -41,11 +41,11 @@
               <span>Category:</span> 
               <select name="type" id="type">
                 <option value=""></option>
-                <option value="nourishment">Nourishment</option>
-                <option value="membership">Membership</option>
-                <option value="membership">Entertainment</option>
-                <option value="service">Service</option>
-                <option value="other">Other</option>
+                <option value="Nourishment">Nourishment</option>
+                <option value="Membership">Membership</option>
+                <option value="Entertainment">Entertainment</option>
+                <option value="Service">Service</option>
+                <option value="Other">Other</option>
               </select>
             </div>  
           </div>
@@ -53,7 +53,6 @@
           <span>Email:</span> 
             <!--Drop Down for Subber-->
             <select name="type" id="sub-save"> 
-              <option value="subber"></option>
             </select>
           </div>
           <!--Subscription Information-->
@@ -84,25 +83,24 @@
     </div>
   </div>
   <!--Subscription List Headers -->
+  <div class="subs-header">
+    <p>
+      <strong> Name </strong>
+      <strong> Category </strong>
+      <strong> Link </strong>
+      <strong> Price </strong>
+      <strong> Email </strong>
+    </p>
+  </div>
   <table class="subs-list">
-    <thead>
-      <tr>
-        <th><u>Name</u></th>
-        <th><u>Category</u></th>
-        <th><u>Link</u></th>
-        <th><u>Price</u></th>
-        <th><u>Email</u></th>
-        <th></th>
-      </tr>
-    </thead>
     <!--Display Subscriptions Here-->
     <tbody id="subs-list">
       
     </tbody>
   </table>
-    <script src="src/subscription.js"></script>
-    <script src="src/subscriber.js"></script>    
     <script src="src/script.js"></script>
     <script src="src/index.js"></script>
+    <script src="src/subscriber.js"></script>    
+    <script src="src/subscription.js"></script>
   </body>
 </html>

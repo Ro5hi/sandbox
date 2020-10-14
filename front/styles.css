@@ -62,7 +62,7 @@ body {
     margin-left: 25px;
 }
 
-.subs-list {
+.subs-header {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -74,4 +74,16 @@ body {
     margin-right: 25px;
     margin-left: 25px;
     margin-top: 25px;
+}
+.subs-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(241, 237, 168);
+    padding-bottom: 25px;
+    padding-top: 15px;
+    padding-right: 25px;
+    padding-left: 25px;
+    margin-right: 25px;
+    margin-left: 25px;
 }

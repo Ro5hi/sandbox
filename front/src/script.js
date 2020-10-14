@@ -59,28 +59,8 @@ class Script {
         alert("Subscriber saved!");
       })
       .catch((error) => {
-        alert("Error!/nCouldn't save subscriber.");
+        alert("Error! Couldn't save subscriber.");
       });
-  }
-
-  
-  renderSubs() {
-    let subsTable = document.getElementById("subs-list");
-
-    const subName = document.getElementById("subname").value;
-    const subCategory = document.getElementById("type").value;
-    const subUrl = document.getElementById("link").value;
-    const subPrice = document.getElementById("price").value;
-    const subbEmail = document.getElementById("sub-save").value;
-
-    subsTable.innerHTML += `
-         <tr><td>${subName}</td></tr>
-         <tr><td>${subCategory}</td></tr>
-         <tr><td>${subUrl}</td></tr>
-         <tr><td>${subPrice}</td></tr>
-         <tr><td>${subbEmail}</td></tr>
-         <tr><td><a href="#" class="btn btn-danger btn-sm Delete">X</a></td></tr>
-    `;
   }
 
   subsList() {
@@ -93,8 +73,8 @@ class Script {
             sub.name,
             sub.link,
             sub.price,
-            subber.email
           );
+          console.log(s)
           s.renderSubs()
         }
       });
@@ -109,9 +89,10 @@ class Script {
         e.preventDefault();
 
         // Sub Form
-        const subName = document.getElementById("subname").value;
         const subCategory = document.getElementById("type").value;
-        const subUrl = document.getElementById("link").value;
+        const subName = document.getElementById("subname").value;
+        const subLink = document.getElementById("link").value;
+        const subDate = document.getElementById("date").value;
         const subPrice = document.getElementById("price").value;
         const sub_id = document.getElementById("sub-save").value;
 
@@ -119,7 +100,7 @@ class Script {
         if (
           subName === "" ||
           subCategory === "" ||
-          subUrl === "" ||
+          subLink === "" ||
           subPrice === ""
         ) {
           alert("Fill in all fields.");
@@ -133,8 +114,9 @@ class Script {
             body: JSON.stringify({
               name: subName,
               category: subCategory,
-              link: subUrl,
+              link: subLink,
               price: subPrice,
+              date: subDate,
               subscriber_id: sub_id,
             }),
           })
