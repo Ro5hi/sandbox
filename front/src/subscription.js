@@ -1,18 +1,19 @@
 class Subscription {
   constructor(category, name, link, price, date) {
     (this.category = category),
-    (this.name = name),
+      (this.name = name),
       (this.link = link),
       (this.price = price),
-      (this.date = date)
-      ;
+      (this.date = date);
   }
 
-  renderSubs() {
+  // Create subscription listing
 
+  renderSubs() {
     const subsTable = document.getElementById("subs-list");
-    const subbEmail = document.getElementById("sub-save").selectedOptions[0].text;  
-  
+    const subbEmail = document.getElementById("sub-save").selectedOptions[0]
+      .text;
+
     subsTable.innerHTML += `
          <tr><td>${this.category}</td></tr>
          <tr><td>${this.name}</td></tr>
@@ -22,11 +23,12 @@ class Subscription {
          <tr><td>${subbEmail}</td></tr>
          <tr><td><button>Delete</button></td></tr>
     `;
-    }
+  }
 
-    
+  // Delete subscription
+
   deleteSub() {
-    debugger
+    debugger;
     const BACKEND_URL = "http://localhost:3000";
     if (el.classList.contains("Delete")) {
       el.parentElement.parentElement.remove();

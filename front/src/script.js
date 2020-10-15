@@ -18,6 +18,7 @@ class Script {
         const subberEmail = e.target.email.value;
 
         // Input Validations
+
         const subber = new Subscriber(subberName, subberEmail);
         if (subberName === "" || subberEmail === "") {
           alert("Name and email is required.");
@@ -41,6 +42,8 @@ class Script {
       });
   }
 
+  // Save Subscriber
+
   getSubbers() {
     fetch(`${BACKEND_URL}/subscribers`)
       .then((response) => response.json())
@@ -63,19 +66,15 @@ class Script {
       });
   }
 
+  // Create new Subscription instance, render to table
+
   subsList() {
     fetch(`${BACKEND_URL}/subscriptions`)
       .then((resp) => resp.json())
       .then((subs) => {
         for (const sub of subs) {
-          let s = new Subscription(
-            sub.category,
-            sub.name,
-            sub.link,
-            sub.price,
-          );
-          console.log(s)
-          s.renderSubs()
+          let s = new Subscription(sub.category, sub.name, sub.link, sub.price);
+          s.renderSubs();
         }
       });
   }
@@ -89,6 +88,7 @@ class Script {
         e.preventDefault();
 
         // Sub Form
+
         const subCategory = document.getElementById("type").value;
         const subName = document.getElementById("subname").value;
         const subLink = document.getElementById("link").value;
@@ -97,6 +97,7 @@ class Script {
         const sub_id = document.getElementById("sub-save").value;
 
         // Validate then add
+
         if (
           subName === "" ||
           subCategory === "" ||
