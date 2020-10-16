@@ -5,9 +5,10 @@ class SubscriptionsController < ApplicationController
         render json: @subscriptions
     end 
 
-    def new
-        @subscription = Subscription.new
-    end
+    def show
+        @subscription = Subscription.all
+        render json: @subscription
+    end 
 
     def create
         @subscription = Subscription.new(sub_params)
@@ -22,10 +23,8 @@ class SubscriptionsController < ApplicationController
     end 
 
     def destroy
-        binding.pry
         @subscription = Subscription.find_by(id: params[:id])
         @subscription.destroy
-        render json: @subscription
     end 
 
     private 

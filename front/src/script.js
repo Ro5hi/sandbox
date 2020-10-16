@@ -33,10 +33,10 @@ class Script {
           })
             .then((response) => response.json())
             .then((json) => {
-              alert("Subscriber saved!");
+              // alert("Subscriber saved!");
             })
             .catch((error) => {
-              alert("Error!/nCouldn't save subscriber.");
+              // alert("Error!/nCouldn't save subscriber.");
             });
         }
       });
@@ -73,7 +73,7 @@ class Script {
       .then((resp) => resp.json())
       .then((subs) => {
         for (const sub of subs) {
-          let s = new Subscription(sub.category, sub.name, sub.link, sub.price);
+          let s = new Subscription(sub.id, sub.category, sub.name, sub.link, sub.price);
           s.renderSubs();
         }
       });

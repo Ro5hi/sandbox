@@ -1,5 +1,6 @@
 class Subscription {
-  constructor(category, name, link, price, date) {
+  constructor(id, category, name, link, price, date) {
+    (this.id = id),
     (this.category = category),
       (this.name = name),
       (this.link = link),
@@ -13,32 +14,33 @@ class Subscription {
     const subsTable = document.getElementById("subs-list");
     const subbEmail = document.getElementById("sub-save").selectedOptions[0]
       .text;
-
-    subsTable.innerHTML += `
-         <tr><td>${this.category}</td></tr>
-         <tr><td>${this.name}</td></tr>
-         <tr><td>${this.link}</td></tr>
-         <tr><td>${this.price}</td></tr>
-         <tr><td>${this.date}</td></tr>
-         <tr><td>${subbEmail}</td></tr>
-         <tr><td><button>Delete</button></td></tr>
+    const subsDiv = document.createElement("div")
+    subsDiv.id = `${this.id}sub`
+    subsTable.appendChild(subsDiv)
+    subsDiv.innerHTML += `
+         <tr><td>${this.category}</td>
+         <td>${this.name}</td>
+         <td>${this.link}</td>
+         <td>${this.price}</td>
+         <td>${this.date}</td>
+         <td>${subbEmail}</td>
+         <td><button id="delete">Delete</button></td></tr>
+         </div>
     `;
-  }
+    const btn = document.querySelector("#delete");
+    btn.addEventListener("click", (e) => {
+      fetch(`${BACKEND_URL}/subscriptions/${this.id}`, {
+        method: "DELETE",
+      })
+        .then(() => {
+          alert("Deleted Subscription");
+          debugger
+        document.getElementById(`${this.id}sub`).remove()
+        }
+        );
+    })
+    } 
 
   // Delete subscription
 
-  deleteSub() {
-    debugger;
-    const BACKEND_URL = "http://localhost:3000";
-    if (el.classList.contains("Delete")) {
-      el.parentElement.parentElement.remove();
-    }
-    fetch(`${BACKEND_URL}/subscriptions`, {
-      method: "DELETE",
-    })
-      .then((response) => response.json())
-      .then((json) => {
-        alert("Deleted Subscription");
-      });
-  }
 }
