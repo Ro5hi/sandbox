@@ -1,4 +1,4 @@
 class SubscriptionSerializer < ActiveModel::Serializer
-  attributes :id, :name, :category, :link, :price, :subscriber_id 
+  attributes :id, :category, :name, :link, :recurring_date, :price, :subscriber_id 
   belongs_to :subscriber
 end

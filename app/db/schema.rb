@@ -23,9 +23,10 @@ ActiveRecord::Schema.define(version: 2) do
   end
 
   create_table "subscriptions", force: :cascade do |t|
+    t.string "category"
     t.string "name"
     t.string "link"
-    t.string "category"
+    t.string "recurring_date"
     t.integer "price"
     t.integer "subscriber_id"
   end

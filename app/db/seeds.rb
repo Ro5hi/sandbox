@@ -5,6 +5,3 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
-    Subscription.create({id: 1, name: 'Netflix', category: 'Other', link: 'http://netflix.com', price: '15', user_id: 1})
-    Subscriber.create({id: 1, name: "Name", email: "email@email.com"})

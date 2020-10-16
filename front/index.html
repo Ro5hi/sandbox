@@ -34,7 +34,7 @@
   <!--Add Subscription Form-->
   <div class="sub-form">
     <div id="sub-form">
-        <form>
+        <form id="subform">
           <div>
             <h2>Add Subscription</h2>
             <div id="category">
@@ -64,10 +64,43 @@
             <span>Link:</span> 
             <input type="url" id="link" placeholder="Website">
           </div>
-          <div>
-            <span>Date:</span> 
-            <input type="date" id="date">
-          </div>
+            <div id="date-menu">
+              <span>Recurring date:</span> 
+              <select name="type" id="date">
+                <option value=""></option>
+                <option value="Every 1st">1</option>
+                <option value="Every 2nd">2</option>
+                <option value="Every 3rd">3</option>
+                <option value="Every 4th">4</option>
+                <option value="Every 5th">5</option>
+                <option value="Every 6th">6</option>
+                <option value="Every 7th">7</option>
+                <option value="Every 8th">8</option>
+                <option value="Every 9th">9</option>
+                <option value="Every 10th">10</option>
+                <option value="Every 11th">11</option>
+                <option value="Every 12th">12</option>
+                <option value="Every 13th">13</option>
+                <option value="Every 14th">14</option>
+                <option value="Every 15th">15</option>
+                <option value="Every 16th">16</option>
+                <option value="Every 17th">17</option>
+                <option value="Every 18th">18</option>
+                <option value="Every 19th">19</option>
+                <option value="Every 20th">20</option>
+                <option value="Every 21st">21</option>
+                <option value="Every 22nd">22</option>
+                <option value="Every 23rd">23</option>
+                <option value="Every 24th">24</option>
+                <option value="Every 25th">25</option>
+                <option value="Every 26th">26</option>
+                <option value="Every 27th">27</option>
+                <option value="Every 28th">28</option>
+                <option value="Every 29th">29</option>
+                <option value="Every 30th">30</option>
+                <option value="Every 31st">31</option>
+              </select>
+            </div>
           <div>
             <span>Price:</span> 
             <input type="number" id="price" placeholder="Subscription Price">
@@ -85,9 +118,10 @@
   <!--Subscription List Headers -->
   <div class="subs-header">
     <p>
-      <strong> Name </strong>
       <strong> Category </strong>
+      <strong> Name </strong>
       <strong> Link </strong>
+      <strong> Date </strong>
       <strong> Price </strong>
       <strong> Email </strong>
     </p>
