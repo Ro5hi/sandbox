@@ -1,12 +1,13 @@
 class SubscriptionsController < ApplicationController
 
+    before_action :set_sub, only: [:show, :destroy]
+
     def index
         @subscriptions = Subscription.all
         render json: @subscriptions
     end 
 
     def show
-        @subscription = Subscription.all
         render json: @subscription
     end 
 
@@ -17,14 +18,17 @@ class SubscriptionsController < ApplicationController
     end
 
     def destroy
-        @subscription = Subscription.find_by(params[:id])
         @subscription.destroy
     end 
 
     private 
 
     def sub_params 
-        params.require(:subscription).permit(:category, :name, :link, :recurring_date, :price, :id, :subscriber_id)
+        params.require(:subscription).permit(:category, :name, :link, :recurring_date, :price, :email, :id, :subscriber_id)
     end
+
+    def set_sub
+        @subscription = Subscription.find_by(id: params[:id])
+    end 
 
 end

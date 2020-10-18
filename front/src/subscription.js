@@ -5,7 +5,7 @@ class Subscription {
       (this.name = name),
       (this.link = link),
       (this.recurring_date = recurring_date),
-      (this.price = price)
+      (this.price = price);
   }
 
   // Create subscription row
@@ -26,17 +26,18 @@ class Subscription {
          <td><button id="delete">Delete</button></td></tr>
          </div>
     `;
-    
-    // Delete subscription
 
-    const btn = document.querySelector("#delete");
-    btn.addEventListener("click", (e) => {
-      fetch(`${BACKEND_URL}/subscriptions/${this.id}`, {
-        method: "DELETE",
-      }).then(() => {
-        alert("Deleted Subscription");
-        document.getElementById(`${this.id}sub`).remove();
-      });
+    // Delete subscription by subsDiv
+
+    const delBtn = subsDiv.querySelector("#delete");
+    delBtn.addEventListener("click", (e) => {
+      fetch(`http://localhost:3000/subscriptions/${this.id}`, {
+        method: "DELETE"
+      })
+        .then(() => {
+          console.log("Deleted Subscription");
+        })
+        .then(subsDiv.remove());
     });
   }
 }

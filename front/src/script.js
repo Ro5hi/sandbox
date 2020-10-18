@@ -2,6 +2,15 @@ const BACKEND_URL = "http://localhost:3000";
 
 class Script {
 
+  // Dark Mode
+  // darkMode() {
+  // const subberForm = document.getElementById("subber-form")
+  // const darkBtn = document.createElement("button") 
+  // darkBtn.addEventListener("click", (e) => { 
+  //     e.preventDefault();
+  //
+  //}
+
   // Save Subscriber
 
   saveSubber() {
@@ -133,7 +142,6 @@ class Script {
             save.reset();
           })
           .catch((error) => {
-            debugger
             alert("Error! Couldn't save subscription.");
           });
       }
