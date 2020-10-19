@@ -3,13 +3,28 @@ const BACKEND_URL = "http://localhost:3000";
 class Script {
 
   // Dark Mode
-  // darkMode() {
-  // const subberForm = document.getElementById("subber-form")
-  // const darkBtn = document.createElement("button") 
-  // darkBtn.addEventListener("click", (e) => { 
-  //     e.preventDefault();
-  //
-  //}
+
+  darkMode() {
+    document.addEventListener("DOMContentLoaded", () => {
+      const styleSheet = document.getElementById("styles");
+      const toggle = document.getElementById("toggle");
+      toggle.addEventListener("click", () => {
+        
+          // Switch to Dark
+        
+        if(styleSheet.href.includes("light")){
+          styleSheet.href = "dark.css";
+          toggle.innerText = "Light mode.";
+        } else {
+        
+          // Switch to Light
+
+        styleSheet.href = "light.css";
+        toggle.innerText = "Dark mode.";
+        }
+      })
+    })
+  }
 
   // Save Subscriber
 
