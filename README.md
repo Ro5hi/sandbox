@@ -27,10 +27,11 @@ Users can enter their name and email address that they use for subscription acco
 - Deploy to Heroku.
 - CSS Animations.
 - Pie chart showing what category user is subscribed to the most.
+- Subscription suggestions(?)
 
 ## Credits:
 
-I would like to thank my study group-mates(BJ, Ben, & Sam), my instructor(Morgan), and friends (Logan & Nick) for guiding me in the right direction with this project!
+I would like to thank my study group-mates(BJ, Ben, & Sam), my instructor(Morgan), and friends (Kirt & Nick) for guiding me in the right direction with this project!
 
 _________________________________________________________________
 
