@@ -17,9 +17,9 @@ class Subscription {
     subsDiv.id = `${this.id}sub`;
     subsTable.appendChild(subsDiv);
     subsDiv.innerHTML += `
-         <tr><td>${this.category}</td>
+         <tr><td><strong>${this.category}</strong></td>
          <td>${this.name}</td>
-         <td>${this.link}</td>
+         <td>${this.link}</td> $
          <td>${this.recurring_date}</td>
          <td>${this.price}</td>
          <td>${subbEmail}</td>

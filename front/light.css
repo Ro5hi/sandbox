@@ -94,6 +94,7 @@ body.dark {
 }
 
 .subs-header {
+    word-spacing: 65px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -107,10 +108,11 @@ body.dark {
     margin-top: 25px;
 }
 .subs-list {
+    word-spacing: 17px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgb(241, 237, 168);
+    background-color: rgb(233, 226, 105);
     padding-bottom: 25px;
     padding-top: 15px;
     padding-right: 25px;

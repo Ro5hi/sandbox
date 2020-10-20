@@ -1,7 +1,6 @@
 const BACKEND_URL = "http://localhost:3000";
 
 class Script {
-
   // Dark Mode
 
   darkMode() {
@@ -9,21 +8,19 @@ class Script {
       const styleSheet = document.getElementById("styles");
       const toggle = document.getElementById("toggle");
       toggle.addEventListener("click", () => {
-        
-          // Switch to Dark
-        
-        if(styleSheet.href.includes("light")){
+        // Switch to Dark
+
+        if (styleSheet.href.includes("light")) {
           styleSheet.href = "dark.css";
-          toggle.innerText = "Light mode.";
+          toggle.innerText = "🌙";
         } else {
-        
           // Switch to Light
 
-        styleSheet.href = "light.css";
-        toggle.innerText = "Dark mode.";
+          styleSheet.href = "light.css";
+          toggle.innerText = "💡";
         }
-      })
-    })
+      });
+    });
   }
 
   // Save Subscriber
@@ -87,7 +84,6 @@ class Script {
     fetch(`${BACKEND_URL}/subscriptions`)
       .then((resp) => resp.json())
       .then((subs) => {
-        console.log(subs);
         for (const sub of subs) {
           this.addSubscription(sub);
         }

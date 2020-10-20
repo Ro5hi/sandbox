@@ -78,6 +78,7 @@ body {
 }
 
 .subs-header {
+    word-spacing: 65px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -91,6 +92,7 @@ body {
     margin-top: 25px;
 }
 .subs-list {
+    word-spacing: 17px;
     display: flex;
     align-items: center;
     justify-content: center;
