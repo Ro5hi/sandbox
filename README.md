@@ -12,8 +12,8 @@ You will need to install the required gems after forking the project to be able 
 
 ## Screenshots: 
 
-![Light Mode](l.PNG)
-![Dark Mode](d.PNG)
+![Light Mode](front/screenshots/l.PNG)
+![Dark Mode](front/screenshots/d.PNG)
 
 ## Usage:
 Users can enter their name and email address that they use for subscription accounts. After submitting, the email will be available in the drop down menu where they can enter their subscription information. Subscriptions will be listed out and can be deleted if no longer subscribed to. Users can also toggle between dark-mode or light-mode for easier viewing.
