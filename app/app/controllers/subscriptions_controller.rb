@@ -24,7 +24,7 @@ class SubscriptionsController < ApplicationController
     private 
 
     def sub_params 
-        params.require(:subscription).permit(:category, :name, :link, :recurring_date, :price, :email, :id, :subscriber_id)
+        params.require(:subscription).permit(:category, :name, :link, :recurring_date, :price, :email, :id, :subscriber_id, :subscriber)
     end
 
     def set_sub

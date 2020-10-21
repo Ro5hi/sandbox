@@ -27,6 +27,10 @@ class SubscribersController < ApplicationController
         render json: @subscriber
     end 
 
+    def show
+        render json: @subscriber 
+    end
+
     def destroy
     end
 

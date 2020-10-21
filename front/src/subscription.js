@@ -39,5 +39,5 @@ class Subscription {
         })
         .then(subsDiv.remove());
     });
-  }
+  }  
 }

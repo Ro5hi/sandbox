@@ -1,6 +1,7 @@
 const BACKEND_URL = "http://localhost:3000";
 
 class Script {
+  
   // Dark Mode
 
   darkMode() {
