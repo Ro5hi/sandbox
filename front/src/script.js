@@ -84,6 +84,7 @@ class Script {
     fetch(`${BACKEND_URL}/subscriptions`)
       .then((resp) => resp.json())
       .then((subs) => {
+        console.log(subs);
         for (const sub of subs) {
           this.addSubscription(sub);
         }
