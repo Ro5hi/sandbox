@@ -12,9 +12,11 @@ class SubscriptionsController < ApplicationController
     end 
 
     def create
-        @subscription = Subscription.new(sub_params)
-        @subscription.save
-        render json: @subscription
+        subscription = Subscription.new(sub_params)
+        subscriber = Subscriber.find_by(id: params[:subscriber_id])
+        subscription.email = subscriber.email
+        subscription.save
+        render json: subscription
     end
 
     def destroy

@@ -16,10 +16,7 @@ class SubscribersController < ApplicationController
         @subscriber.save
         render json: @subscriber
     end
-
-    def destroy
-    end
-
+    
     private
 
     def subber_params

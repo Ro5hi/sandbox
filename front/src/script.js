@@ -63,7 +63,7 @@ class Script {
     });
   }
 
-  // Loop code 
+  // Loop code to remove extra renders
 
   removeAllChildNodes(parent) {
     while (parent.firstChild) {
@@ -81,8 +81,8 @@ class Script {
         this.removeAllChildNodes(subberList);
         json.forEach((subber) => {
           const option = document.createElement("OPTION");
+          option.value = subber.id; 
           option.text = subber.email;
-          option.value = subber.email;
           subberList.appendChild(option);
         });
       });
@@ -129,7 +129,6 @@ class Script {
       const subLink = document.getElementById("link").value;
       const subDate = document.getElementById("date").value;
       const subPrice = document.getElementById("price").value;
-      const subEmail = e.target["sub-save"].value;
       const sub_id = document.getElementById("sub-save").value;
 
       // Validate then add
@@ -138,7 +137,6 @@ class Script {
         subCategory === "" ||
         subLink === "" ||
         subPrice === "" ||
-        subEmail === "" ||
         subDate === ""
       ) {
         alert("Fill in all fields.");
@@ -151,7 +149,6 @@ class Script {
           },
           body: JSON.stringify({
             category: subCategory,
-            email: subEmail,
             name: subName,
             link: subLink,
             recurring_date: subDate,
