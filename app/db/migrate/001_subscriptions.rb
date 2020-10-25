@@ -7,6 +7,7 @@ class Subscriptions < ActiveRecord::Migration[6.0]
         t.string :recurring_date
         t.integer :price
         t.integer :subscriber_id
+        t.string :email
     end 
   end 
 end 

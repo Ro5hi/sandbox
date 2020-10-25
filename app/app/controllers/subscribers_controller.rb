@@ -17,20 +17,6 @@ class SubscribersController < ApplicationController
         render json: @subscriber
     end
 
-    def new
-        @subscriber = Subscriber.new
-    end 
-
-    def update
-        @subscriber.update(subber_params)
-        @subscriber.save
-        render json: @subscriber
-    end 
-
-    def show
-        render json: @subscriber 
-    end
-
     def destroy
     end
 

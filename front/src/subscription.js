@@ -1,18 +1,18 @@
 class Subscription {
-  constructor(id, category, name, link, price, recurring_date) {
+  constructor(id, category, name, link, price, recurring_date, email) {
       (this.id = id),
       (this.category = category),
       (this.name = name),
       (this.link = link),
       (this.recurring_date = recurring_date),
-      (this.price = price);
+      (this.price = price),
+      (this.email = email);
   }
 
   // Create subscription row
 
   renderSubs() {
     const subsTable = document.getElementById("subs-list");
-    const subbEmail = document.getElementById("sub-save").selectedOptions[0].text;
     const subsDiv = document.createElement("div");
     subsDiv.id = `${this.id}sub`;
     subsTable.appendChild(subsDiv);
@@ -22,7 +22,7 @@ class Subscription {
          <td>${this.link}</td> $
          <td>${this.recurring_date}</td>
          <td>${this.price}</td>
-         <td>${subbEmail}</td>
+         <td>${this.email}</td>
          <td><button id="delete">Delete</button></td></tr>
          </div>
     `;

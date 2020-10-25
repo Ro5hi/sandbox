@@ -63,6 +63,14 @@ class Script {
     });
   }
 
+  // Loop code 
+
+  removeAllChildNodes(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
+  }
+
   // Save Subscriber
 
   getSubbers() {
@@ -70,10 +78,11 @@ class Script {
       .then((response) => response.json())
       .then((json) => {
         const subberList = document.getElementById("sub-save");
+        this.removeAllChildNodes(subberList);
         json.forEach((subber) => {
           const option = document.createElement("OPTION");
           option.text = subber.email;
-          option.value = subber.id;
+          option.value = subber.email;
           subberList.appendChild(option);
         });
       });
@@ -99,8 +108,10 @@ class Script {
       sub.name,
       sub.link,
       sub.recurring_date,
-      sub.price
+      sub.price,
+      sub.email
     );
+    console.log(s);
     s.renderSubs();
   }
 
@@ -118,17 +129,17 @@ class Script {
       const subLink = document.getElementById("link").value;
       const subDate = document.getElementById("date").value;
       const subPrice = document.getElementById("price").value;
-      const subEmail = document.getElementById("sub-save").selectedOptions[0]
-        .text;
+      const subEmail = e.target["sub-save"].value;
       const sub_id = document.getElementById("sub-save").value;
 
       // Validate then add
-
       if (
         subName === "" ||
         subCategory === "" ||
         subLink === "" ||
-        subPrice === ""
+        subPrice === "" ||
+        subEmail === "" ||
+        subDate === ""
       ) {
         alert("Fill in all fields.");
       } else {
@@ -140,12 +151,12 @@ class Script {
           },
           body: JSON.stringify({
             category: subCategory,
+            email: subEmail,
             name: subName,
             link: subLink,
             recurring_date: subDate,
             price: subPrice,
-            email: subEmail,
-            subscriber_id: sub_id,
+            subscriber_id: sub_id
           }),
         })
           .then((response) => response.json())

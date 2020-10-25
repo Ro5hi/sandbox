@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2) do
     t.string "recurring_date"
     t.integer "price"
     t.integer "subscriber_id"
+    t.string "email"
   end
 
 end
