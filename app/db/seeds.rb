@@ -5,3 +5,5 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+#   Subscription.create(id: 1, category: "Membership", name: "Amazon", link: "https://amazon.com", recurring_date: "Every 5th", price: 10, subscriber_id: 1, email: "test@email.com")
+#   Subscriber.create(id: 1, name: "Test", email: "test@email.com")

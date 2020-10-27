@@ -36,7 +36,7 @@ class Script {
       const subberName = e.target.name.value;
       const subberEmail = e.target.email.value;
 
-      // Input Validations
+      // Validates input then POST
 
       const subber = new Subscriber(subberName, subberEmail);
       if (subberName === "" || subberEmail === "") {
@@ -94,7 +94,7 @@ class Script {
     fetch(`${BACKEND_URL}/subscriptions`)
       .then((resp) => resp.json())
       .then((subs) => {
-        console.log(subs);
+        console.log("Subscriptions w/ Subscriber:", subs);
         for (const sub of subs) {
           this.addSubscription(sub);
         }
@@ -111,7 +111,7 @@ class Script {
       sub.price,
       sub.email
     );
-    console.log(s);
+    console.log("Subscription:", s);
     s.renderSubs();
   }
 
@@ -131,7 +131,7 @@ class Script {
       const subPrice = document.getElementById("price").value;
       const sub_id = document.getElementById("sub-save").value;
 
-      // Validate then add
+      // Validate then POST
       if (
         subName === "" ||
         subCategory === "" ||
