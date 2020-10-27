@@ -52,13 +52,14 @@ class Script {
         })
           .then((response) => response.json())
           .then((json) => {
-            this.getSubbers(json);
+            this.getSubbers();
             console.log("Subscriber saved!");
             subberForm.reset();
           })
           .catch((error) => {
             alert("Error! Couldn't save subscriber.");
           });
+
       }
     });
   }

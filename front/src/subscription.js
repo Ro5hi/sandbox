@@ -39,5 +39,22 @@ class Subscription {
         })
         .then(subsDiv.remove());
     });
-  }  
+  }
+
+  sortName(e) {
+    
+
+  }
+
+  static filterBtn(e) {
+    const alphaFilter = document.createElement("button");
+    alphaFilter.setAttribute("class", "button");
+    alphaFilter.setAttribute("id", "a-z");
+    alphaFilter.innerText = "A-Z";
+    alphaFilter.addEventListener("click", (e) => this.sortName(e));
+    
+    const header = document.querySelector(".subs-header");
+    header.appendChild(alphaFilter);
+    
+  }
 }
