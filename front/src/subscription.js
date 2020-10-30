@@ -44,14 +44,18 @@ class Subscription {
   static sortSubs() {
     const subsTable = document.querySelector(".subs-list");
     let sort = true;
+    // Loops through until there's nothing to sort
     while (sort) {
+    // Start with nothing to sort and loops through Divs
       sort = false;
       let s = subsTable.getElementsByTagName("div");
       for (let i = 0; i < (s.length - 1); i++) {
+        // Checks if the following should get sorted
         let getSorted = false;
         if (s[i].querySelector("span").innerHTML > s[i +1].querySelector("span").innerHTML) {
           getSorted = true;
         }
+        // If all the rows have been sorted then it is done
         if (getSorted) {
           s[i].parentNode.insertBefore(s[i + 1], s[i]);
           sort = true;
@@ -65,12 +69,12 @@ class Subscription {
   static filterRows(e) {
     const header = document.querySelector(".subs-header");
     const alphaFilter = document.createElement("button");
+    // Creates button with the following attributes
     alphaFilter.setAttribute("class", "button");
     alphaFilter.setAttribute("id", "a-z");
     alphaFilter.innerText = "A-Z";
-    
-    alphaFilter.addEventListener("click", (e) => this.sortSubs(e));
     header.appendChild(alphaFilter);
-    
+    // Call on event sortSubs for alphabetical sorting 
+    alphaFilter.addEventListener("click", (e) => this.sortSubs(e));
   }
 }
