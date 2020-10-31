@@ -5,5 +5,6 @@ const script = new Script();
     script.getSubbers();
     script.subsList();
     script.saveSub();
-    Subscription.filterRows();
+    Subscription.sortRows();
     Subscription.sortSubs();
+    Subscription.filterSearch();

@@ -66,7 +66,7 @@ class Subscription {
 
   }
 
-  static filterRows(e) {
+  static sortRows(e) {
     const header = document.querySelector(".subs-header");
     const alphaFilter = document.createElement("button");
     // Creates button with the following attributes
@@ -77,4 +77,32 @@ class Subscription {
     // Call on event sortSubs for alphabetical sorting 
     alphaFilter.addEventListener("click", (e) => this.sortSubs(e));
   }
+
+  // Filtered search by subscription name
+
+  static filterSearch() {
+    const header = document.querySelector(".subs-header");
+    const subTable = document.getElementById("subs-list");
+    
+    // Create "search" input with attributes
+    const search = document.createElement("input");
+    search.setAttribute("type", "text");
+    search.setAttribute("class", "input");
+    search.setAttribute("id", "find");
+    header.appendChild(search);
+
+    // Get search bar for input
+    const searchBar = document.getElementById("find");
+    let subRow = subTable.getElementsByTagName("div");
+    debugger
+    search.addEventListener("keyup", (e) => {
+      // Populate with subscriptions containing the characters
+      const character = e.target.value;
+      debugger
+      return subRow.includes(character);
+
+    }
+    )
+  }
+
 }
