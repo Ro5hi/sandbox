@@ -80,7 +80,7 @@ class Subscription {
 
   // Filtered search by subscription name
 
-  static filterSearch() {
+  static filterSearch(e) {
     const header = document.querySelector(".subs-header");
     const subTable = document.getElementById("subs-list");
     
@@ -94,15 +94,19 @@ class Subscription {
     // Get search bar for input
     const searchBar = document.getElementById("find");
     let subRow = subTable.getElementsByTagName("div");
-    debugger
-    search.addEventListener("keyup", (e) => {
-      // Populate with subscriptions containing the characters
-      const character = e.target.value;
-      debugger
-      return subRow.includes(character);
 
-    }
+    searchBar.addEventListener("keyup", (e) => {
+      // Get subscription with the same characters
+      const character = e.target.value.toLowerCase();
+      const subsName = subTable.querySelector("span").innerHTML;
+      // Return subscription in a table row with boolean matching characters in subRow
+      debugger
+      if(subsName.match(character)){
+        subRow.style.display="table-row"; 
+      } else {
+        subRow.style.display="none";
+      }
+      }
     )
   }
-
 }
