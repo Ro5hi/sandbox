@@ -79,7 +79,6 @@ class Subscription {
   }
 
   // Filtered search by subscription name
-
   static filterSearch(e) {
     const header = document.querySelector(".subs-header");
     const subTable = document.getElementById("subs-list");
@@ -93,20 +92,23 @@ class Subscription {
 
     // Get search bar for input
     const searchBar = document.getElementById("find");
-    let subRow = subTable.getElementsByTagName("div");
-
+    
     searchBar.addEventListener("keyup", (e) => {
       // Get subscription with the same characters
+      let subRows = subTable.getElementsByTagName("div");
       const character = e.target.value.toLowerCase();
-      const subsName = subTable.querySelector("span").innerHTML;
-      // Return subscription in a table row with boolean matching characters in subRow
-      debugger
-      if(subsName.match(character)){
-        subRow.style.display="table-row"; 
+      
+      // Loop through subRows subsName to find matching character
+      for (let i = 0; i < (subRows.length); i++) {
+        const subsName = subRows[i].querySelector("span").innerHTML.toLowerCase();
+        console.log(character)
+
+      // Return subscriptions with the matching characters
+      if(subsName.includes(character)){
+        subRows[i].style.display="block"; 
       } else {
-        subRow.style.display="none";
-      }
-      }
-    )
-  }
+        subRows[i].style.display="none";
+      }}
+    }
+  )}
 }
